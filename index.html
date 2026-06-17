@@ -1,10 +1,297 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>CoRL 2026 Surgical Autonomy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoRL 2026 Tutorial · Robot Learning on the Path to Surgical Autonomy</title>
+<meta name="description" content="CoRL 2026 half-day tutorial on robot learning for surgical autonomy — methods, data, and open challenges. Austin, TX.">
+<link rel="icon" href="corl_symbol.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c1322;
+  --bg-soft:#121b2e;
+  --card:#16203a;
+  --line:rgba(255,255,255,.09);
+  --ink:#eef2fb;
+  --muted:#9aa7c2;
+  --rust:#c75b39;
+  --rust-soft:#e08a5f;
+  --gold:#f1a73a;
+  --teal:#3fb4c4;
+  --accent:#e08a5f;
+  --shadow:0 18px 50px -20px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--rust-soft);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.2;letter-spacing:-.01em}
+
+/* ---------- Construction banner ---------- */
+.construction{
+  background:repeating-linear-gradient(45deg,#1a1207,#1a1207 14px,#241a0a 14px,#241a0a 28px);
+  border-bottom:1px solid rgba(241,167,58,.35);
+  color:var(--gold);
+  text-align:center;
+  font-size:.84rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:9px 16px;
+}
+.construction span{opacity:.92}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  min-height:78vh;
+  display:flex;
+  align-items:flex-end;
+  background:linear-gradient(180deg,rgba(12,19,34,.35) 0%,rgba(12,19,34,.55) 45%,rgba(12,19,34,.97) 100%),
+             url('austin-cityscape.jpg') center/cover no-repeat;
+}
+.hero-inner{padding:64px 0 56px;width:100%}
+.brandrow{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.brandrow img{height:46px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+.brandrow .badge{
+  font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);background:rgba(255,255,255,.1);border:1px solid var(--line);
+  padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px);
+}
+.hero h1{
+  font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:700;
+  max-width:18ch;
+  text-shadow:0 4px 24px rgba(0,0,0,.55);
+}
+.hero h1 .accent{color:var(--rust-soft)}
+.hero .lede{
+  margin-top:18px;max-width:60ch;font-size:1.1rem;color:#dde4f3;
+  text-shadow:0 2px 12px rgba(0,0,0,.5);
+}
+.meta-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(22,32,58,.78);border:1px solid var(--line);
+  padding:9px 15px;border-radius:10px;font-size:.92rem;font-weight:500;
+  backdrop-filter:blur(6px);
+}
+.chip b{color:var(--gold);font-weight:600}
+
+/* ---------- Sections ---------- */
+section{padding:62px 0;border-top:1px solid var(--line)}
+.eyebrow{
+  font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:12px;
+}
+section h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:18px}
+.lead-p{font-size:1.06rem;color:#d2dbef;max-width:72ch}
+.lead-p + .lead-p{margin-top:16px}
+
+/* challenges */
+.grid{display:grid;gap:18px;margin-top:30px}
+.grid.cols-1{grid-template-columns:1fr}
+@media(min-width:720px){.challenges{grid-template-columns:1fr 1fr}}
+.challenges{display:grid;gap:16px;margin-top:30px}
+.qcard{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:22px 22px 20px;box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.qcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--rust),var(--gold))}
+.qcard .num{font-family:'Space Grotesk';font-size:.8rem;font-weight:700;color:var(--gold);letter-spacing:.1em}
+.qcard h3{font-size:1.08rem;margin:6px 0 8px}
+.qcard p{font-size:.95rem;color:var(--muted)}
+
+/* speakers */
+.speakers{display:grid;gap:16px;margin-top:30px}
+@media(min-width:720px){.speakers{grid-template-columns:1fr 1fr}}
+.spk{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+}
+.spk-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.spk h3{font-size:1.12rem}
+.spk .aff{color:var(--muted);font-size:.92rem;margin-top:2px}
+.spk .role{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;white-space:nowrap;border:1px solid}
+.role.committed{color:#5fd39a;border-color:rgba(95,211,154,.4);background:rgba(95,211,154,.08)}
+.role.requested{color:var(--gold);border-color:rgba(241,167,58,.4);background:rgba(241,167,58,.08)}
+.spk .blurb{margin-top:12px;font-size:.95rem;color:#c7d1e8}
+.spk .blurb b{color:var(--ink)}
+
+/* schedule */
+.sched{margin-top:28px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sched-row{display:grid;grid-template-columns:104px 1fr;gap:14px;padding:14px 20px;border-top:1px solid var(--line);align-items:baseline}
+.sched-row:first-child{border-top:none}
+.sched-row.hands{background:rgba(63,180,196,.07)}
+.sched .time{font-family:'Space Grotesk';font-weight:600;color:var(--teal);font-size:.92rem;white-space:nowrap}
+.sched .blk{font-size:.97rem}
+.sched .blk .lead{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+.sched .tag{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+
+/* organizers */
+.orgs{display:grid;gap:12px;margin-top:28px}
+@media(min-width:560px){.orgs{grid-template-columns:1fr 1fr}}
+.org{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.org .name{font-weight:600}
+.org .aff{color:var(--muted);font-size:.9rem}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)}
+.foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+.foot-note{color:var(--muted);font-size:.9rem;max-width:50ch}
+.foot-brand{display:flex;align-items:center;gap:12px}
+.foot-brand img{height:34px}
+.pill{display:inline-block;margin-top:8px;font-size:.78rem;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--gold);border:1px solid rgba(241,167,58,.35);
+  border-radius:999px;padding:4px 12px}
+</style>
 </head>
 <body>
-    <h1>Welcome to the CoRL 2026 Workshop on Surgical Autonomy</h1>
-    <p>Website coming soon!</p>
+
+<div class="construction">
+  <span>🚧 Site under construction — details are being finalized. Check back soon.</span>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="brandrow">
+      <img src="corl_symbol.png" alt="CoRL 2026 logo">
+      <span class="badge">CoRL 2026 · Austin, TX</span>
+    </div>
+    <h1>Robot Learning on the Path to <span class="accent">Surgical Autonomy</span></h1>
+    <p class="lede">Methods, data, and open challenges — a half-day tutorial bridging robot learning, surgical robotics, and clinical practice.</p>
+    <div class="meta-chips">
+      <span class="chip">📍 <b>Austin, TX</b></span>
+      <span class="chip">🗓 <b>CoRL 2026</b> · Half-day Tutorial</span>
+      <span class="chip">🤖 Hands-on with <b>Open-H-Embodiment</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About the Tutorial</p>
+    <h2>An inflection point for surgical robot learning</h2>
+    <p class="lead-p">For the first time, the field has open, cross-embodiment data at scale, attempts at generalist policy architectures that transfer from kitchen-table manipulation to the operating room, and peer-reviewed demonstrations of autonomous soft-tissue surgical steps. Yet the path from a learned policy to a system a surgeon trusts in the OR remains poorly charted.</p>
+    <p class="lead-p">This tutorial is explicitly instructional. We pair perspective talks from industry, academia, and practicing surgery with a guided hands-on session on the Open-H-Embodiment dataset — so attendees leave able to load the data, run a pretrained policy, and reason about how to improve the current state of the art.</p>
+    <p class="lead-p"><b>Intended audience:</b> robot-learning researchers, graduate students, and engineers entering surgical robotics, plus practitioners in surgical data science seeking a shared dataset and a current map of open problems. We assume comfort with deep learning and Python, but no surgical background.</p>
+  </div>
+</section>
+
+<section id="challenges">
+  <div class="wrap">
+    <p class="eyebrow">Core Questions</p>
+    <h2>Five decisions that gate progress</h2>
+    <p class="lead-p">Each is revisited from the industry, academic, and clinical perspective during the talks, and made real through the hands-on session.</p>
+    <div class="challenges">
+      <div class="qcard"><span class="num">01</span><h3>What data should we collect?</h3><p>Which sensing streams and platforms yield data that actually transfers, and where the largest collection gaps remain.</p></div>
+      <div class="qcard"><span class="num">02</span><h3>What data should we annotate?</h3><p>Where scarce expert-annotation budget is best spent, and how to combine sparse labels with foundation-model pretraining.</p></div>
+      <div class="qcard"><span class="num">03</span><h3>Which task should we automate?</h3><p>Choosing subtasks that are clinically meaningful, technically tractable, and safely evaluable.</p></div>
+      <div class="qcard"><span class="num">04</span><h3>Bridging industry, academia & surgery</h3><p>Surfacing what is lost in translation across the loop, and what each community needs from the others.</p></div>
+      <div class="qcard"><span class="num">05</span><h3>Training the next medical roboticist</h3><p>What a newcomer should learn first, and what infrastructure lowers the barrier to entry.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="speakers">
+  <div class="wrap">
+    <p class="eyebrow">Invited Speakers</p>
+    <h2>Industry, academia, and clinical practice</h2>
+    <div class="speakers">
+      <div class="spk">
+        <div class="spk-top">
+          <div><h3>Filippo Filicori, MD</h3><div class="aff">Northwell Health</div></div>
+          <span class="role committed">Committed</span>
+        </div>
+        <p class="blurb"><b>Clinical reality — what autonomy must solve in the OR.</b> System Chief of Surgical Innovation at Northwell and chair of the SAGES AI committee, grounding every challenge in clinical need.</p>
+      </div>
+      <div class="spk">
+        <div class="spk-top">
+          <div><h3>Shan Lin, PhD</h3><div class="aff">Arizona State University</div></div>
+          <span class="role requested">Requested</span>
+        </div>
+        <p class="blurb"><b>Academic perception and learning for autonomy.</b> Director of the MARGIN Lab, working on surgical perception, motion planning, and vision-language models for surgery.</p>
+      </div>
+      <div class="spk">
+        <div class="spk-top">
+          <div><h3>Aneeq Zia, PhD</h3><div class="aff">Intuitive Surgical</div></div>
+          <span class="role committed">Committed</span>
+        </div>
+        <p class="blurb"><b>Industry perspective — what ships, and the data behind it.</b> Leads surgical activity and skill-recognition work at Intuitive and co-organizes the SurgToolLoc / EndoVis challenges.</p>
+      </div>
+      <div class="spk">
+        <div class="spk-top">
+          <div><h3>Axel Krieger, PhD</h3><div class="aff">Johns Hopkins University</div></div>
+          <span class="role requested">Requested</span>
+        </div>
+        <p class="blurb"><b>Academic frontier — end-to-end soft-tissue autonomy.</b> His lab produced the STAR autonomous suturing system and the first imitation-learning demonstration of an autonomous phase of cholecystectomy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <p class="eyebrow">Format</p>
+    <h2>A half-day that never sits still</h2>
+    <p class="lead-p">Four 25-minute talks supply the perspectives; a 60-minute hands-on block on a shared Open-H Colab notebook lets attendees run the methods themselves; a closing panel turns the speakers toward each other. Pacing changes every 20–30 minutes.</p>
+    <div class="sched">
+      <div class="sched-row"><span class="time">0:00–0:10</span><span class="blk">Welcome, motivation & Open-H orientation<span class="lead">Kiran + Alaa</span></span></div>
+      <div class="sched-row"><span class="time">0:10–0:35</span><span class="blk">Talk 1 — Clinical reality: what autonomy must solve in the OR<span class="lead">F. Filicori</span></span></div>
+      <div class="sched-row"><span class="time">0:35–1:00</span><span class="blk">Talk 2 — Perception, benchmarks, and VLMs for surgery<span class="lead">S. Lin</span></span></div>
+      <div class="sched-row"><span class="time">1:00–1:20</span><span class="blk">Coffee break + Colab setup help table<span class="lead">Organizers</span></span></div>
+      <div class="sched-row hands"><span class="time">1:20–2:20</span><span class="blk"><span class="tag">Hands-on</span> Open-H — one shared notebook, four guided segments<span class="lead">All organizers</span></span></div>
+      <div class="sched-row"><span class="time">2:20–2:45</span><span class="blk">Talk 3 — Industry: how surgical AI actually ships<span class="lead">A. Zia</span></span></div>
+      <div class="sched-row"><span class="time">2:45–3:10</span><span class="blk">Talk 4 — Academic frontier: end-to-end soft-tissue autonomy<span class="lead">A. Krieger</span></span></div>
+      <div class="sched-row"><span class="time">3:10–3:25</span><span class="blk">Audience Q&amp;A from a live shared doc<span class="lead">Kiran (mod.)</span></span></div>
+      <div class="sched-row"><span class="time">3:25–3:55</span><span class="blk">Panel — the right next task, dataset, and eval for surgical autonomy<span class="lead">Speakers + organizers</span></span></div>
+      <div class="sched-row"><span class="time">3:55–4:00</span><span class="blk">Closing, take-home links, post-tutorial homework with cloud credits<span class="lead">Kiran</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="organizers">
+  <div class="wrap">
+    <p class="eyebrow">Organizers</p>
+    <h2>Who's behind it</h2>
+    <div class="orgs">
+      <div class="org"><div class="name">Kiran D. Bhattacharyya</div><div class="aff">SKA Labs</div></div>
+      <div class="org"><div class="name">Alaa Eldin Abdelaal</div><div class="aff">Johnson &amp; Johnson MedTech</div></div>
+      <div class="org"><div class="name">Sreeram Kamabattula</div><div class="aff">Intuitive Surgical</div></div>
+      <div class="org"><div class="name">Noah Barnes</div><div class="aff">Johns Hopkins University</div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="corl_symbol.png" alt="CoRL 2026 logo">
+      <div>
+        <div style="font-weight:600">CoRL 2026 Tutorial · Surgical Autonomy</div>
+        <span class="pill">More details coming soon</span>
+      </div>
+    </div>
+    <p class="foot-note">This page is still under construction. Speaker confirmations, registration details, and hands-on materials will be posted here as they are finalized.</p>
+  </div>
+</footer>
+
 </body>
 </html>
+

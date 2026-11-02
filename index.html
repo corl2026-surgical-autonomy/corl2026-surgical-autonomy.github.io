@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CoRL 2026 Tutorial · Robot Learning on the Path to Surgical Autonomy</title>
-<meta name="description" content="CoRL 2026 half-day tutorial on robot learning for surgical autonomy — methods, data, and open challenges. Austin, TX.">
+<meta name="description" content="CoRL 2026 half-day tutorial on robot learning for surgical autonomy — methods, data, and open challenges. Thursday, Nov 12, 2026, 2:00–6:00 PM CT, JW Marriott Austin, TX.">
 <link rel="icon" href="corl_symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +130,23 @@ section h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:18px}
 .spk .blurb{margin-top:12px;font-size:.95rem;color:#c7d1e8}
 .spk .blurb b{color:var(--ink)}
 .role.tba{color:var(--muted);border-color:var(--line);background:rgba(255,255,255,.04)}
+.role.slot{color:var(--teal);border-color:rgba(63,180,196,.4);background:rgba(63,180,196,.08)}
+.spk .persp{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+
+/* hands-on segments inside schedule */
+.segs{list-style:none;margin-top:8px;display:grid;gap:4px}
+.segs li{font-size:.86rem;color:#c7d1e8}
+.segs li b{color:var(--teal);font-weight:600}
+.sched-note{margin-top:12px;font-size:.88rem;color:var(--muted)}
+
+/* resources */
+.res{display:grid;gap:14px;margin-top:28px}
+@media(min-width:720px){.res{grid-template-columns:1fr 1fr 1fr}}
+.res-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.res-card h3{font-size:1.04rem;margin-bottom:6px}
+.res-card p{font-size:.93rem;color:var(--muted)}
+.res-card .soon{display:inline-block;margin-top:12px;font-size:.74rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--gold);border:1px solid rgba(241,167,58,.35);border-radius:999px;padding:3px 10px}
 
 /* schedule */
 .sched{margin-top:28px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -174,8 +191,8 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
     <h1>Robot Learning on the Path to <span class="accent">Surgical Autonomy</span></h1>
     <p class="lede">Methods, data, and open challenges — a half-day tutorial bridging robot learning, surgical robotics, and clinical practice.</p>
     <div class="meta-chips">
-      <span class="chip">📍 <b>Austin, TX</b></span>
-      <span class="chip">🗓 <b>CoRL 2026</b> · Half-day Tutorial</span>
+      <span class="chip">📍 <b>JW Marriott Austin</b> · Austin, TX</span>
+      <span class="chip">🗓 <b>Thu, Nov 12, 2026</b> · 2:00–6:00 PM CT</span>
       <span class="chip">🤖 Hands-on with <b>Open-H-Embodiment</b></span>
     </div>
   </div>
@@ -212,33 +229,40 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
   <div class="wrap">
     <p class="eyebrow">Invited Speakers</p>
     <h2>Industry, academia, and clinical practice</h2>
-    <p class="lead-p">Four speakers span the perspectives below. Names and affiliations will be announced here as they are confirmed.</p>
+    <p class="lead-p">Five speakers bring the clinical, academic, and industry perspectives — each framed as instruction: how they actually do this, and what a newcomer should reach for.</p>
     <div class="speakers">
       <div class="spk">
         <div class="spk-top">
-          <div><h3>Clinical perspective</h3><div class="aff">Practicing surgeon</div></div>
-          <span class="role tba">To be announced</span>
+          <div><p class="persp">Clinical</p><h3>Filippo Filicori, MD</h3><div class="aff">Northwell Health</div></div>
+          <span class="role slot">2:10 PM</span>
         </div>
         <p class="blurb"><b>Clinical reality — what autonomy must solve in the OR.</b> Grounding every challenge in clinical need: what data and which tasks matter, what annotations are meaningful, and what it takes to earn surgeon trust.</p>
       </div>
       <div class="spk">
         <div class="spk-top">
-          <div><h3>Academic perspective</h3><div class="aff">Early-career faculty</div></div>
-          <span class="role tba">To be announced</span>
+          <div><p class="persp">Academic</p><h3>Shan Lin, PhD</h3><div class="aff">Arizona State University</div></div>
+          <span class="role slot">2:30 PM</span>
         </div>
         <p class="blurb"><b>Perception and learning for autonomy.</b> Surgical perception, motion planning, and vision-language models for surgery — annotation strategy, benchmarking, and the infrastructure newcomers need.</p>
       </div>
       <div class="spk">
         <div class="spk-top">
-          <div><h3>Industry perspective</h3><div class="aff">Surgical robotics industry</div></div>
-          <span class="role tba">To be announced</span>
+          <div><p class="persp">Industry</p><h3>Aneeq Zia, PhD</h3><div class="aff">Intuitive Surgical</div></div>
+          <span class="role slot">2:50 PM</span>
         </div>
         <p class="blurb"><b>What ships, and the data behind it.</b> Surgical activity and skill recognition from the seat of a company that deploys models against real surgical video at scale, and how production constraints shape data collection.</p>
       </div>
       <div class="spk">
         <div class="spk-top">
-          <div><h3>Academic frontier</h3><div class="aff">Robotics & autonomy lab</div></div>
-          <span class="role tba">To be announced</span>
+          <div><p class="persp">Industry</p><h3>Mostafa Toloui</h3><div class="aff">NVIDIA</div></div>
+          <span class="role slot">3:10 PM</span>
+        </div>
+        <p class="blurb"><b>Foundation models for surgical robotics.</b> The models and tools behind Open-H — GR00T-H and Cosmos-H — and how to put them to work. Sets up the hands-on session that follows.</p>
+      </div>
+      <div class="spk">
+        <div class="spk-top">
+          <div><p class="persp">Academic frontier</p><h3>Axel Krieger, PhD</h3><div class="aff">Johns Hopkins University</div></div>
+          <span class="role slot">5:00 PM</span>
         </div>
         <p class="blurb"><b>End-to-end soft-tissue autonomy.</b> How far learned policies can go on real anatomy — anchoring the "which task to automate" and "what data to collect" questions with concrete results.</p>
       </div>
@@ -248,20 +272,53 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
 
 <section id="schedule">
   <div class="wrap">
-    <p class="eyebrow">Format</p>
+    <p class="eyebrow">Program · Thursday, Nov 12, 2026 · Afternoon session</p>
     <h2>A half-day that never sits still</h2>
-    <p class="lead-p">Four 25-minute talks supply the perspectives; a 60-minute hands-on block on a shared Open-H Colab notebook lets attendees run the methods themselves; a closing panel turns the speakers toward each other. Pacing changes every 20–30 minutes.</p>
+    <p class="lead-p">Five 20-minute talks supply the perspectives; a 60-minute hands-on block lets attendees run the methods themselves in four short Colab notebooks; a closing panel turns the speakers toward each other. Pacing changes every 20–30 minutes.</p>
     <div class="sched">
-      <div class="sched-row"><span class="time">0:00–0:10</span><span class="blk">Welcome, motivation & Open-H orientation<span class="lead">Kiran + Alaa</span></span></div>
-      <div class="sched-row"><span class="time">0:10–0:35</span><span class="blk">Talk 1 — Clinical reality: what autonomy must solve in the OR<span class="lead">Clinical perspective</span></span></div>
-      <div class="sched-row"><span class="time">0:35–1:00</span><span class="blk">Talk 2 — Perception, benchmarks, and VLMs for surgery<span class="lead">Academic perspective</span></span></div>
-      <div class="sched-row"><span class="time">1:00–1:20</span><span class="blk">Coffee break + Colab setup help table<span class="lead">Organizers</span></span></div>
-      <div class="sched-row hands"><span class="time">1:20–2:20</span><span class="blk"><span class="tag">Hands-on</span> Open-H — one shared notebook, four guided segments<span class="lead">All organizers</span></span></div>
-      <div class="sched-row"><span class="time">2:20–2:45</span><span class="blk">Talk 3 — Industry: how surgical AI actually ships<span class="lead">Industry perspective</span></span></div>
-      <div class="sched-row"><span class="time">2:45–3:10</span><span class="blk">Talk 4 — Academic frontier: end-to-end soft-tissue autonomy<span class="lead">Academic frontier</span></span></div>
-      <div class="sched-row"><span class="time">3:10–3:25</span><span class="blk">Audience Q&amp;A from a live shared doc<span class="lead">Kiran (mod.)</span></span></div>
-      <div class="sched-row"><span class="time">3:25–3:55</span><span class="blk">Panel — the right next task, dataset, and eval for surgical autonomy<span class="lead">Speakers + organizers</span></span></div>
-      <div class="sched-row"><span class="time">3:55–4:00</span><span class="blk">Closing, take-home links, post-tutorial homework with cloud credits<span class="lead">Kiran</span></span></div>
+      <div class="sched-row"><span class="time">2:00–2:10</span><span class="blk">Welcome, motivation & Open-H orientation<span class="lead">Kiran Bhattacharyya & Alaa Eldin Abdelaal</span></span></div>
+      <div class="sched-row"><span class="time">2:10–2:30</span><span class="blk">Talk 1 — Clinical reality: what autonomy must solve in the OR<span class="lead">Filippo Filicori, MD · Northwell Health</span></span></div>
+      <div class="sched-row"><span class="time">2:30–2:50</span><span class="blk">Talk 2 — Perception, benchmarks, and VLMs for surgery<span class="lead">Shan Lin, PhD · Arizona State University</span></span></div>
+      <div class="sched-row"><span class="time">2:50–3:10</span><span class="blk">Talk 3 — Industry: how surgical AI actually ships<span class="lead">Aneeq Zia, PhD · Intuitive Surgical</span></span></div>
+      <div class="sched-row"><span class="time">3:10–3:30</span><span class="blk">Talk 4 — Foundation models for surgical robotics: GR00T-H & Cosmos-H<span class="lead">Mostafa Toloui · NVIDIA</span></span></div>
+      <div class="sched-row"><span class="time">3:30–4:00</span><span class="blk">Coffee break + Colab setup help table<span class="lead">Organizers</span></span></div>
+      <div class="sched-row hands"><span class="time">4:00–5:00</span><span class="blk"><span class="tag">Hands-on</span> Open-H — four guided segments, one notebook each<span class="lead">All organizers</span>
+        <ul class="segs">
+          <li><b>4:00</b> · Data loading & visualization — Alaa Eldin Abdelaal</li>
+          <li><b>4:15</b> · Perception & scene understanding — Sreeram Kamabattula</li>
+          <li><b>4:30</b> · Robot learning & evaluation with ACT — Noah Barnes</li>
+          <li><b>4:45</b> · Robot learning & evaluation with VLAs — Kiran Bhattacharyya</li>
+        </ul></span></div>
+      <div class="sched-row"><span class="time">5:00–5:20</span><span class="blk">Talk 5 — Academic frontier: end-to-end soft-tissue autonomy<span class="lead">Axel Krieger, PhD · Johns Hopkins University</span></span></div>
+      <div class="sched-row"><span class="time">5:20–5:30</span><span class="blk">Audience Q&amp;A from the participant questions doc<span class="lead">Kiran Bhattacharyya (mod.)</span></span></div>
+      <div class="sched-row"><span class="time">5:30–5:55</span><span class="blk">Panel — the right next task, dataset, and eval for surgical autonomy<span class="lead">Speakers + organizers</span></span></div>
+      <div class="sched-row"><span class="time">5:55–6:00</span><span class="blk">Closing & take-home links<span class="lead">Kiran Bhattacharyya</span></span></div>
+    </div>
+    <p class="sched-note">All times Central Time (CT). The 3:30–4:00 break is the conference-wide afternoon coffee break.</p>
+  </div>
+</section>
+
+<section id="hands-on">
+  <div class="wrap">
+    <p class="eyebrow">Hands-on Materials</p>
+    <h2>Bring a laptop — everything runs in the browser</h2>
+    <p class="lead-p">The hands-on session is split into four separate Google Colab notebooks, one per segment, because each segment needs different compute. Because each notebook stands on its own, you can join at any segment without having run the earlier ones. Links will be posted here before the tutorial.</p>
+    <div class="res">
+      <div class="res-card">
+        <h3>Colab notebooks</h3>
+        <p>One notebook for each of the four segments: data loading & visualization, perception & scene understanding, ACT, and VLAs.</p>
+        <span class="soon">Links coming soon</span>
+      </div>
+      <div class="res-card">
+        <h3>Tutorial info doc</h3>
+        <p>A Google Doc with setup steps, compute notes, dataset and model links, and other details you'll need on the day.</p>
+        <span class="soon">Link coming soon</span>
+      </div>
+      <div class="res-card">
+        <h3>Questions & comments doc</h3>
+        <p>A shared Google Doc for your questions and comments. We'll address as many as we can during the tutorial, and follow up on the rest afterward.</p>
+        <span class="soon">Link coming soon</span>
+      </div>
     </div>
   </div>
 </section>
@@ -290,7 +347,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
         <span class="pill">More details coming soon</span>
       </div>
     </div>
-    <p class="foot-note">This page is still under construction. Speaker confirmations, registration details, and hands-on materials will be posted here as they are finalized.</p>
+    <p class="foot-note">This page is still under construction. Room details, Colab notebook links, and the tutorial Google Docs will be posted here as they are finalized.</p>
   </div>
 </footer>
 

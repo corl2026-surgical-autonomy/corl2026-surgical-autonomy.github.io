@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CoRL 2026 Tutorial · Robot Learning on the Path to Surgical Autonomy</title>
-<meta name="description" content="CoRL 2026 half-day tutorial on robot learning for surgical autonomy — methods, data, and open challenges. Thursday, Nov 12, 2026, 2:00–6:00 PM CT, JW Marriott Austin, TX.">
+<meta name="description" content="CoRL 2026 half-day tutorial on robot learning for surgical autonomy — methods, data, and open challenges. Thursday, Nov 12, 2026, 2:00–6:00 PM CT, JW Marriott Austin, Room 213, Austin, TX.">
 <link rel="icon" href="corl_symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,7 +61,7 @@ h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.2;letter-spacing:-
   background:linear-gradient(180deg,rgba(12,19,34,.35) 0%,rgba(12,19,34,.55) 45%,rgba(12,19,34,.97) 100%),
              url('austin-cityscape.jpg') center/cover no-repeat;
 }
-.hero-inner{padding:64px 0 56px;width:100%}
+.hero-inner{padding:64px 24px 56px;width:100%}
 .brandrow{display:flex;align-items:center;gap:14px;margin-bottom:26px}
 .brandrow img{height:46px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
 .brandrow .badge{
@@ -141,8 +141,13 @@ section h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:18px}
 
 /* resources */
 .res{display:grid;gap:14px;margin-top:28px}
-@media(min-width:720px){.res{grid-template-columns:1fr 1fr 1fr}}
-.res-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+@media(min-width:720px){.res{grid-template-columns:1fr 1fr}}
+.res-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column}
+.res-card .res-link{align-self:flex-start;margin-top:16px;font-size:.92rem;font-weight:600;color:var(--bg);background:var(--rust-soft);border-radius:10px;padding:9px 16px}
+.res-card .res-link:hover{text-decoration:none;background:var(--gold)}
+.res-card ul{margin:10px 0 0 18px;font-size:.93rem;color:var(--muted)}
+a.chip{color:var(--ink)}
+a.chip:hover{text-decoration:none;border-color:var(--rust-soft)}
 .res-card h3{font-size:1.04rem;margin-bottom:6px}
 .res-card p{font-size:.93rem;color:var(--muted)}
 .res-card .soon{display:inline-block;margin-top:12px;font-size:.74rem;font-weight:700;letter-spacing:.08em;
@@ -178,9 +183,6 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
 </head>
 <body>
 
-<div class="construction">
-  <span>🚧 Site under construction — details are being finalized. Check back soon.</span>
-</div>
 
 <header class="hero">
   <div class="wrap hero-inner">
@@ -191,9 +193,9 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
     <h1>Robot Learning on the Path to <span class="accent">Surgical Autonomy</span></h1>
     <p class="lede">Methods, data, and open challenges — a half-day tutorial bridging robot learning, surgical robotics, and clinical practice.</p>
     <div class="meta-chips">
-      <span class="chip">📍 <b>JW Marriott Austin</b> · Austin, TX</span>
+      <span class="chip">📍 <b>JW Marriott Austin · Room 213</b></span>
       <span class="chip">🗓 <b>Thu, Nov 12, 2026</b> · 2:00–6:00 PM CT</span>
-      <span class="chip">🤖 Hands-on with <b>Open-H-Embodiment</b></span>
+      <a class="chip" href="#hands-on">💻 <b>Notebooks &amp; Q&amp;A doc</b> ↓</a>
     </div>
   </div>
 </header>
@@ -272,7 +274,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
 
 <section id="schedule">
   <div class="wrap">
-    <p class="eyebrow">Program · Thursday, Nov 12, 2026 · Afternoon session</p>
+    <p class="eyebrow">Program · Thursday, Nov 12, 2026 · JW Marriott Austin, Room 213</p>
     <h2>A half-day that never sits still</h2>
     <p class="lead-p">Five 20-minute talks supply the perspectives; a 60-minute hands-on block lets attendees run the methods themselves in four short Colab notebooks; a closing panel turns the speakers toward each other. Pacing changes every 20–30 minutes.</p>
     <div class="sched">
@@ -290,7 +292,7 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
           <li><b>4:45</b> · Robot learning & evaluation with VLAs — Kiran Bhattacharyya</li>
         </ul></span></div>
       <div class="sched-row"><span class="time">5:00–5:20</span><span class="blk">Talk 5 — Autonomous Robotic Surgery: From Teleoperation to Learning Systems<span class="lead">Axel Krieger, PhD · Johns Hopkins University</span></span></div>
-      <div class="sched-row"><span class="time">5:20–5:30</span><span class="blk">Audience Q&amp;A from the participant questions doc<span class="lead">Kiran Bhattacharyya (mod.)</span></span></div>
+      <div class="sched-row"><span class="time">5:20–5:30</span><span class="blk">Audience Q&amp;A from the <a href="https://docs.google.com/document/d/1m1PdHT8SUcWE0jvpOda43ArQEK_W4cGftF9GMqH0XMo/edit?usp=sharing" target="_blank" rel="noopener">participant questions doc</a><span class="lead">Kiran Bhattacharyya (mod.)</span></span></div>
       <div class="sched-row"><span class="time">5:30–5:55</span><span class="blk">Panel — the right next task, dataset, and eval for surgical autonomy<span class="lead">Speakers + organizers</span></span></div>
       <div class="sched-row"><span class="time">5:55–6:00</span><span class="blk">Closing & take-home links<span class="lead">Kiran Bhattacharyya</span></span></div>
     </div>
@@ -302,22 +304,23 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
   <div class="wrap">
     <p class="eyebrow">Hands-on Materials</p>
     <h2>Bring a laptop — everything runs in the browser</h2>
-    <p class="lead-p">The hands-on session is split into four separate Google Colab notebooks, one per segment, because each segment needs different compute. Because each notebook stands on its own, you can join at any segment without having run the earlier ones. Links will be posted here before the tutorial.</p>
+    <p class="lead-p">The hands-on session is split into four separate Google Colab notebooks, one per segment, since each segment needs different compute. Each notebook stands on its own, so you can join at any segment without having run the earlier ones. All you need is a laptop and a Google account.</p>
     <div class="res">
       <div class="res-card">
-        <h3>Colab notebooks</h3>
-        <p>One notebook for each of the four segments: data loading & visualization, perception & scene understanding, ACT, and VLAs.</p>
-        <span class="soon">Links coming soon</span>
+        <h3>Tutorial info &amp; notebook links</h3>
+        <p>Links to all four Colab notebooks, plus setup steps, compute notes, troubleshooting and the models and data we use.</p>
+        <ul>
+          <li>Segment 1 · Data loading &amp; visualization</li>
+          <li>Segment 2 · Perception &amp; scene understanding</li>
+          <li>Segment 3 · Robot learning &amp; evaluation with ACT</li>
+          <li>Segment 4 · Robot learning &amp; evaluation with VLAs</li>
+        </ul>
+        <a class="res-link" href="https://docs.google.com/document/d/1IRxbFuaprjBPXiOCwydaEIlXbVLKE2Z311ij3hSpnpQ/edit?usp=sharing" target="_blank" rel="noopener">Open the tutorial info doc →</a>
       </div>
       <div class="res-card">
-        <h3>Tutorial info doc</h3>
-        <p>A Google Doc with setup steps, compute notes, dataset and model links, and other details you'll need on the day.</p>
-        <span class="soon">Link coming soon</span>
-      </div>
-      <div class="res-card">
-        <h3>Questions & comments doc</h3>
-        <p>A shared Google Doc for your questions and comments. We'll address as many as we can during the tutorial, and follow up on the rest afterward.</p>
-        <span class="soon">Link coming soon</span>
+        <h3>Audience questions &amp; comments</h3>
+        <p>Add your questions under the talk or segment they relate to, and +1 the ones you want answered. At 5:20 PM we'll consolidate them for the Q&amp;A and the panel, and follow up on the rest afterward.</p>
+        <a class="res-link" href="https://docs.google.com/document/d/1m1PdHT8SUcWE0jvpOda43ArQEK_W4cGftF9GMqH0XMo/edit?usp=sharing" target="_blank" rel="noopener">Open the questions doc →</a>
       </div>
     </div>
   </div>
@@ -344,10 +347,10 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
       <img src="corl_symbol.png" alt="CoRL 2026 logo">
       <div>
         <div style="font-weight:600">CoRL 2026 Tutorial · Surgical Autonomy</div>
-        <span class="pill">More details coming soon</span>
+        <span class="pill">Thu, Nov 12 · Room 213</span>
       </div>
     </div>
-    <p class="foot-note">This page is still under construction. Room details, Colab notebook links, and the tutorial Google Docs will be posted here as they are finalized.</p>
+    <p class="foot-note">Notebook links, setup steps and the questions doc are in the <a href="#hands-on">Hands-on Materials</a> section above.</p>
   </div>
 </footer>
 

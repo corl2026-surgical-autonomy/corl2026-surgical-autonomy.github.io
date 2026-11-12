@@ -129,6 +129,10 @@ section h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:18px}
 .role.requested{color:var(--gold);border-color:rgba(241,167,58,.4);background:rgba(241,167,58,.08)}
 .spk .blurb{margin-top:12px;font-size:.95rem;color:#c7d1e8}
 .spk .blurb b{color:var(--ink)}
+.spk details{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.spk summary{cursor:pointer;font-size:.86rem;font-weight:600;color:var(--rust-soft)}
+.spk details p{margin-top:10px;font-size:.9rem;color:var(--muted)}
+.spk details p b{color:var(--ink)}
 .role.tba{color:var(--muted);border-color:var(--line);background:rgba(255,255,255,.04)}
 .role.slot{color:var(--teal);border-color:rgba(63,180,196,.4);background:rgba(63,180,196,.08)}
 .spk .persp{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
@@ -242,10 +246,15 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
       </div>
       <div class="spk">
         <div class="spk-top">
-          <div><p class="persp">Academic</p><h3>Shan Lin, PhD</h3><div class="aff">Arizona State University</div></div>
+          <div><p class="persp">Academic</p><h3>Shan Lin, PhD</h3><div class="aff">Arizona State University · Mayo Clinic Arizona</div></div>
           <span class="role slot">2:30 PM</span>
         </div>
-        <p class="blurb"><b>How Can Robots Act Like a Surgeon? Perception, Reasoning, and Learning</b></p>
+        <p class="blurb"><b>How Can Robots Act Like a Surgeon? Perception, Reasoning, and Learning.</b> Multimodal perception and vision-language models for understanding surgery, richer sensing for robots, and robot learning with vision-language-action models.</p>
+        <details>
+          <summary>Abstract &amp; bio</summary>
+          <p><b>Abstract.</b> What does it take for a robot to act like a surgeon? Surgical robots need to perceive complex and dynamic environments, reason about what is happening and what may happen next, and learn how to interact safely with the physical world. In this talk, I will present our recent efforts toward these capabilities across medical AI and robotics. I will first discuss multimodal perception and vision-language models for interpreting surgical procedures, with an emphasis on explainability and understanding dynamic interactions. I will then introduce our work on multimodal sensing to provide robots with richer sensory feedback. Finally, I will share a glimpse of our recent efforts in robot learning and vision-language-action models toward robotic manipulation. Together, these efforts explore how perception, reasoning, and learning can bring robots closer to intelligent and reliable assistance in surgery.</p>
+          <p><b>Bio.</b> Shan Lin is an Assistant Professor in the School of Electrical, Computer and Energy Engineering at Arizona State University, where she leads the Medical Automation, Robotics &amp; General Intelligence (MARGIN) Lab. She is also a Research Affiliate with the Department of Urology at Mayo Clinic in Arizona. Her research focuses on surgical robotics and medical devices, with current interests in AI, perception, planning, control, robot learning, and manipulation for surgical robots.</p>
+        </details>
       </div>
       <div class="spk">
         <div class="spk-top">

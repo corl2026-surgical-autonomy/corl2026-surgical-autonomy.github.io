@@ -152,6 +152,15 @@ section h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:18px}
 .res-card ul{margin:10px 0 0 18px;font-size:.93rem;color:var(--muted)}
 a.chip{color:var(--ink)}
 a.chip:hover{text-decoration:none;border-color:var(--rust-soft)}
+/* post-event thank-you */
+#thanks{border-top:none;padding:56px 0 8px}
+.thanks-card{background:linear-gradient(135deg,rgba(224,138,95,.14),rgba(63,180,196,.10));border:1px solid rgba(224,138,95,.35);border-radius:16px;padding:30px 30px 28px;box-shadow:var(--shadow)}
+.thanks-card .lead-p{max-width:78ch}
+.thanks-card .soon-list{margin-top:16px;color:#d2dbef;font-size:1rem}
+.thanks-card .soon-list b{color:var(--gold)}
+.pod-link{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-weight:700;font-size:1rem;color:var(--bg);background:var(--rust-soft);border-radius:12px;padding:12px 20px}
+.pod-link:hover{text-decoration:none;background:var(--gold)}
+
 .res-card h3{font-size:1.04rem;margin-bottom:6px}
 .res-card p{font-size:.93rem;color:var(--muted)}
 .res-card .soon{display:inline-block;margin-top:12px;font-size:.74rem;font-weight:700;letter-spacing:.08em;
@@ -199,12 +208,26 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
     <div class="meta-chips">
       <span class="chip">📍 <b>JW Marriott Austin · Room 213</b></span>
       <span class="chip">🗓 <b>Thu, Nov 12, 2026</b> · 2:00–6:00 PM CT</span>
+      <a class="chip" href="https://kiranbuilds.substack.com/p/path-to-surgical-autonomy-tutorial" target="_blank" rel="noopener">🎧 <b>Listen to the panel</b></a>
       <a class="chip" href="#hands-on">💻 <b>Notebooks &amp; Q&amp;A doc</b> ↓</a>
     </div>
   </div>
 </header>
 
 <main>
+
+<section id="thanks">
+  <div class="wrap">
+    <div class="thanks-card">
+      <p class="eyebrow">Thank you</p>
+      <h2>Thank you to our speakers and attendees</h2>
+      <p class="lead-p">The tutorial took place on Thursday, November 12, 2026 at CoRL in Austin, and it was a great afternoon. Thank you to our speakers, Filippo Filicori, Shan Lin, Aneeq Zia, Mostafa Toloui and Axel Krieger, for sharing how they actually do this work. And thank you to everyone who joined us, worked through the notebooks and asked such good questions. Thanks also to NVIDIA for supporting the compute for the hands-on session.</p>
+      <p class="soon-list"><b>Coming soon:</b> photos from the day, the code from the hands-on notebooks, and a formal write-up of the open challenges and the panel discussion.</p>
+      <p class="lead-p" style="margin-top:16px">In the meantime, listen to the full panel discussion, now available as a podcast episode.</p>
+      <a class="pod-link" href="https://kiranbuilds.substack.com/p/path-to-surgical-autonomy-tutorial" target="_blank" rel="noopener">🎧 Listen to the panel discussion on Substack →</a>
+    </div>
+  </div>
+</section>
 
 <section id="about">
   <div class="wrap">
@@ -356,10 +379,10 @@ footer{border-top:1px solid var(--line);padding:46px 0;background:var(--bg-soft)
       <img src="corl_symbol.png" alt="CoRL 2026 logo">
       <div>
         <div style="font-weight:600">CoRL 2026 Tutorial · Surgical Autonomy</div>
-        <span class="pill">Thu, Nov 12 · Room 213</span>
+        <span class="pill">Held Thu, Nov 12, 2026</span>
       </div>
     </div>
-    <p class="foot-note">Notebook links, setup steps and the questions doc are in the <a href="#hands-on">Hands-on Materials</a> section above.</p>
+    <p class="foot-note">Thank you for joining us. Listen to the <a href="https://kiranbuilds.substack.com/p/path-to-surgical-autonomy-tutorial" target="_blank" rel="noopener">panel discussion</a>; photos, code and a formal write-up are coming soon.</p>
   </div>
 </footer>
 
